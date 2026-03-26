@@ -2,13 +2,21 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/src/lib/supabaseClient";
 
+interface Producto {
+  id: number;
+  name: string;
+  price: number;
+  image_url: string;
+  stock?: number;
+}
+
 interface RelatedProps {
   category: string;
   currentId: number;
 }
 
 export default function RelatedProducts({ category, currentId }: RelatedProps) {
-    const [related, setRelated] = useState([]);
+    const [related, setRelated] = useState<Producto[]>([]);
 
     useEffect(() => {
         const fetchRelated = async () => {
