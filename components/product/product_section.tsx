@@ -3,7 +3,23 @@ import Link from 'next/link'
 import ProductCard from "./product_card"
 import arrowright from "@/public/extras/arrow.png"
 import separator from "@/public/extras/separator.png"
-export default function ProductSection({ title, products = [], slug }) {
+
+interface Producto {
+  id: number;
+  name: string;
+  price: number;
+  image_url: string;
+  stock?: number;
+  [key: string]: any;
+}
+
+interface ProductSectionProps {
+  title: string;
+  slug: string;
+  products?: Producto[];
+}
+
+export default function ProductSection({ title, products = [], slug }: ProductSectionProps) {
     return (
         <section className="flex flex-col gap-10 2xl:gap-20">
             <div className="flex justify-between items-center">
