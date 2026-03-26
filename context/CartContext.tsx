@@ -8,6 +8,7 @@ interface CartItem {
   image_url: string
   quantity: number
   stock?: number
+  weight_grams?: number
 }
 
 interface CartContextType {
