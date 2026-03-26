@@ -2,7 +2,14 @@
 
 
 
-export default function ProductInfo({ product }) {
+interface Producto {
+  name: string;
+  price: number;
+  short_description?: string;
+  [key: string]: any;
+}
+
+export default function ProductInfo({ product }: { product: Producto }) {
     return (
         <div className="flex flex-col items-start gap-3">
             <div>
