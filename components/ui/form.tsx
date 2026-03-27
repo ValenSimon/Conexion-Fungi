@@ -9,7 +9,7 @@ export default function Form() {
         <h2 className="text-xl font-bold">Envíanos un mensaje</h2>
       </div>
 
-      <div className="lg:flex gap-6 ">
+      <div className="lg:flex flex flex-col gap-2 ">
         {/* Nombre Completo */}
         <div className="flex flex-col gap-2 lg:w-1/2">
           <label htmlFor="full-name" className="text-sm font-semibold">Nombre Completo</label>

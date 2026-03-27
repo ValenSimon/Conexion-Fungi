@@ -74,7 +74,7 @@ export default function RelatedProducts({ category, currentId }: RelatedProps) {
                             />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <h3 className="text-left text-[#575757] font-semibold text-lg min-h-20 flex items-center sm:text-xl md:text-[23px]">
+                            <h3 className="text-left text-[#575757] font-semibold text-lg min-h-24 flex items-center sm:text-xl md:text-[23px]">
                                 {product.name}
                             </h3>
                             <p className="text-left font-semibold font-montserrat sm:text-lg">

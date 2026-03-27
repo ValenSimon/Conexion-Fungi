@@ -21,6 +21,7 @@ export default function Productos() {
     const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState<Producto | null>(null);
+    const [selectedProductImages, setSelectedProductImages] = useState<{ file: null, preview: string, id: number }[]>([]);
 
     const fetchProducts = async () => {
         setLoading(true);
@@ -52,26 +53,51 @@ export default function Productos() {
 
     const handleCreate = () => {
         setSelectedProduct(null);
+        setSelectedProductImages([]);
         setIsModalOpen(true);
     };
 
-    const handleEdit = (product: Producto) => {
+    const handleEdit = async (product: Producto) => {
         setSelectedProduct(product);
+        // Cargar imágenes ANTES de abrir el modal para evitar race conditions
+        const { data } = await supabase
+            .from('product_images')
+            .select('*')
+            .eq('product_id', product.id);
+        setSelectedProductImages(
+            (data || []).map(img => ({ file: null, preview: img.url, id: img.id }))
+        );
         setIsModalOpen(true);
     };
 
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
-        setSelectedProduct(null);
-        fetchProducts();
-    };
+    const handleCloseModal = async () => {
+    setIsModalOpen(false);
+
+    if (selectedProduct) {
+        const { data } = await supabase
+            .from('product_images')
+            .select('*')
+            .eq('product_id', selectedProduct.id);
+
+        setSelectedProductImages(
+            (data || []).map(img => ({
+                file: null,
+                preview: img.url,
+                id: img.id
+            }))
+        );
+    }
+
+    setSelectedProduct(null);
+    fetchProducts();
+};
 
     return (
         <div className="flex flex-col gap-6 items-center py-6 w-full font-Nunito  mx-auto">
             {/* HEADER SIEMPRE VISIBLE */}
             <div className="flex flex-col gap-4 items-center sm:flex-row sm:justify-between w-full px-6">
                 <h2 className="font-bold text-2xl text-gray-800">Gestión de Productos</h2>
-                <button 
+                <button
                     onClick={handleCreate}
                     className="flex items-center gap-3 px-6 py-3 bg-[#F59F40] rounded-xl text-white hover:bg-[#c2612d] transition-all shadow-md hover:shadow-lg font-bold"
                 >
@@ -80,10 +106,12 @@ export default function Productos() {
                 </button>
             </div>
 
-            <ModalNuevoProducto 
-                isOpen={isModalOpen} 
-                onClose={handleCloseModal} 
+            <ModalNuevoProducto
+                key={selectedProduct?.id ?? 'new'}
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
                 productoEditar={selectedProduct}
+                initialImages={selectedProductImages}
             />
 
             <div className="w-full px-4">
@@ -131,7 +159,7 @@ export default function Productos() {
                                                 </span>
                                             </td>
                                             <td className="px-6 py-4 font-black text-gray-700">${product.price.toLocaleString('es-AR')}</td>
-                                            { product.stock == 0 ? (
+                                            {product.stock == 0 ? (
                                                 <td className="px-6 py-4 text-sm text-red-500 font-black">{product.stock} Unid.</td>
                                             ) : (
                                                 <td className="px-6 py-4 text-sm text-gray-500">{product.stock} Unid.</td>

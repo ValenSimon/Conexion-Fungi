@@ -52,7 +52,7 @@ export const ServiciosData  = [
 
     id: 4,
 
-    name: "Tratamientos con Medicina Escalar",
+    name: "Medicina Escalar",
 
     short_description: "Aprende las técnicas más avanzadas con nosotros.",
 
