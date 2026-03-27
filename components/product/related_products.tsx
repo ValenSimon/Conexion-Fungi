@@ -81,10 +81,12 @@ export default function RelatedProducts({ category, currentId }: RelatedProps) {
                             <p className="text-left font-semibold font-montserrat sm:text-lg">
                                 {product.price.toLocaleString('es-AR')} ARS
                             </p>
-                            <Link href={`/producto/${product.id}`}>
-                                <button className="mt-1 text-center border-1 border-[#575757] py-2 rounded-md font-semibold hover:bg-[#EF9B51] hover:text-white transition-colors duration-500 sm:text-lg md:text-xl">
-                                    Ver Más
-                                </button>
+                            
+                            <Link 
+                                href={`/producto/${product.id}`} 
+                                className="block mt-1 text-center border border-[#575757] py-2 rounded-md font-semibold hover:bg-[#EF9B51] hover:text-white transition-colors duration-500 sm:text-lg md:text-xl"
+                            >
+                                Ver Más
                             </Link>
                         </div>
                     </div>
