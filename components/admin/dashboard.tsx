@@ -44,11 +44,6 @@ export default function Sidebar() {
                         <img className='w-6' src={Orders.src} alt="" />
                         {isOpen && <span className="font-medium">Pedidos</span>}
                     </Link>
-                    
-                    <Link href="/admin/users" className="flex items-center gap-4 p-3 rounded-md hover:bg-[#c2612d] transition-all">
-                        <img className='w-6' src={Users.src} alt="" />
-                        {isOpen && <span className="font-medium">Usuarios</span>}
-                    </Link>
                 </ul>
 
                 {/* Footer del Sidebar (Opcional) */}
