@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/src/lib/supabaseClient";
 import separator from "@/public/extras/separator.png";
+import Link from "next/link";
 
 interface Producto {
   id: number;
@@ -80,9 +81,11 @@ export default function RelatedProducts({ category, currentId }: RelatedProps) {
                             <p className="text-left font-semibold font-montserrat sm:text-lg">
                                 {product.price.toLocaleString('es-AR')} ARS
                             </p>
-                            <button className="mt-1 text-center border-1 border-[#575757] py-2 rounded-md font-semibold hover:bg-[#EF9B51] hover:text-white transition-colors duration-500 sm:text-lg md:text-xl">
-                                Ver Más
-                            </button>
+                            <Link href={`/producto/${product.id}`}>
+                                <button className="mt-1 text-center border-1 border-[#575757] py-2 rounded-md font-semibold hover:bg-[#EF9B51] hover:text-white transition-colors duration-500 sm:text-lg md:text-xl">
+                                    Ver Más
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 ))}
