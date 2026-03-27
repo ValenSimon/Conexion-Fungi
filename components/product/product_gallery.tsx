@@ -50,7 +50,7 @@ export default function ProductGallery({ product, images }: Props) {
                                - lg:opacity-0: Oculto en pantallas grandes (desktop).
                                - lg:group-hover:opacity-100: Aparece en desktop al pasar el mouse.
                             */
-                            className="absolute left-3 top-1/2 -translate-y-1/2 bg-[#EF8851] hover:bg-white text-white px-2 rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200"
+                            className="absolute left-3 top-1/2 -translate-y-1/2 bg-[#EF8851] hover:bg-white hover:text-black text-white px-2 rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200"
                         >
                             <span className="text-2xl">‹</span>
                         </button>
@@ -58,7 +58,7 @@ export default function ProductGallery({ product, images }: Props) {
                         <button
                             onClick={next}
                             aria-label="Siguiente"
-                            className="absolute right-3 top-1/2 -translate-y-1/2 bg-[#EF8851] hover:bg-white text-white px-2 rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200"
+                            className="absolute right-3 top-1/2 -translate-y-1/2 bg-[#EF8851] hover:bg-white hover:text-black text-white px-2 rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200"
                         >
                             <span className="text-2xl">›</span>
                         </button>
@@ -75,7 +75,7 @@ export default function ProductGallery({ product, images }: Props) {
                                 className={`w-2 h-2 rounded-full transition-all duration-200 ${
                                     i === current
                                         ? 'bg-white scale-125'
-                                        : 'bg-white/50 hover:bg-white/80'
+                                        : 'bg-white/50 hover:bg-white/80 '
                                 }`}
                             />
                         ))}
@@ -85,7 +85,7 @@ export default function ProductGallery({ product, images }: Props) {
 
             {/* Miniaturas (Opcional, ayuda mucho en móvil para navegar rápido) */}
             {allImages.length > 1 && (
-                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide ">
+                <div className=" xl:hidden flex gap-2 overflow-x-auto pb-2 scrollbar-hide ">
                     {allImages.map((img, i) => (
                         <button
                             key={i}
