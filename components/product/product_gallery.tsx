@@ -36,7 +36,7 @@ export default function ProductGallery({ product, images }: Props) {
                     className="w-full h-full object-cover transition-opacity duration-300"
                 />
 
-                {/* Gradiente sutil */}
+                {/* Gradiente sutil para mejorar visibilidad de controles */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
 
                 {/* Flechas (solo si hay más de una imagen) */}
@@ -45,23 +45,29 @@ export default function ProductGallery({ product, images }: Props) {
                         <button
                             onClick={prev}
                             aria-label="Anterior"
-                            className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-700 rounded-full w-9 h-9 flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                            /* Explicación de clases:
+                               - opacity-100: Visible en móvil por defecto.
+                               - lg:opacity-0: Oculto en pantallas grandes (desktop).
+                               - lg:group-hover:opacity-100: Aparece en desktop al pasar el mouse.
+                            */
+                            className="absolute left-3 top-1/2 -translate-y-1/2 bg-[#EF8851] hover:bg-white text-white px-2 rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200"
                         >
-                            ‹
+                            <span className="text-2xl">‹</span>
                         </button>
+                        
                         <button
                             onClick={next}
                             aria-label="Siguiente"
-                            className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-700 rounded-full w-9 h-9 flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                            className="absolute right-3 top-1/2 -translate-y-1/2 bg-[#EF8851] hover:bg-white text-white px-2 rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-200"
                         >
-                            ›
+                            <span className="text-2xl">›</span>
                         </button>
                     </>
                 )}
 
                 {/* Indicadores de punto */}
                 {allImages.length > 1 && (
-                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
                         {allImages.map((_, i) => (
                             <button
                                 key={i}
@@ -77,6 +83,22 @@ export default function ProductGallery({ product, images }: Props) {
                 )}
             </div>
 
+            {/* Miniaturas (Opcional, ayuda mucho en móvil para navegar rápido) */}
+            {allImages.length > 1 && (
+                <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide ">
+                    {allImages.map((img, i) => (
+                        <button
+                            key={i}
+                            onClick={() => setCurrent(i)}
+                            className={`relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                                i === current ? 'border-[#EF8851] scale-95' : 'border-transparent opacity-70'
+                            }`}
+                        >
+                            <img src={img.url} alt="" className="w-24 h-full object-cover" />
+                        </button>
+                    ))}
+                </div>
+            )}
         </div>
     )
 }

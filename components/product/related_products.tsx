@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { supabase } from "@/src/lib/supabaseClient";
+import separator from "@/public/extras/separator.png";
 
 interface Producto {
   id: number;
@@ -55,7 +56,11 @@ export default function RelatedProducts({ category, currentId }: RelatedProps) {
     return (
         <div className="flex flex-col gap-4 mt-10">
             <div className="flex flex-col gap-2">
-                <h2 className="text-xl font-bold font-Nunito sm:text-3xl">También te puede interesar</h2>
+                <div className=" flex items-center gap-2">
+                    <img className="w-1.5 md:w-2" src={separator.src} alt="separator" />
+                    <h2 className="text-xl font-bold font-Nunito sm:text-3xl">También te puede interesar</h2>
+                </div>
+
                 <p className="text-[#575757]">Complementa tu vida de bienestar con alguno de estos productos</p>
             </div>
             <div className="grid grid-cols-2 gap-10 xl:grid-cols-4 xl:gap-14 2xl:grid-cols-4">
@@ -69,7 +74,7 @@ export default function RelatedProducts({ category, currentId }: RelatedProps) {
                             />
                         </div>
                         <div className="flex flex-col gap-1">
-                            <h3 className="text-left text-[#575757] font-semibold text-lg min-h-16 flex items-center sm:text-xl md:text-[23px]">
+                            <h3 className="text-left text-[#575757] font-semibold text-lg min-h-20 flex items-center sm:text-xl md:text-[23px]">
                                 {product.name}
                             </h3>
                             <p className="text-left font-semibold font-montserrat sm:text-lg">

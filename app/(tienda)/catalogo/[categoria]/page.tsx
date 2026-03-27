@@ -40,7 +40,7 @@ export default async function CategoriaPage({ params }: { params: Promise<{ cate
 
       <div className="flex flex-col gap-6 mb-8">            
         <div className="flex flex-col gap-4">
-          <h1 className="text-xl font-bold sm:text-4xl 2xl:text-5xl capitalize">
+          <h1 className="text-3xl font-bold sm:text-4xl 2xl:text-5xl capitalize">
             {categoryData.name}
           </h1>
           {/* Si tienes una columna 'description' en Categories, úsala aquí */}

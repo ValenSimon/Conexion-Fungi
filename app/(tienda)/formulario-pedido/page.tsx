@@ -8,6 +8,8 @@ import {
   Home, Loader2, ChevronLeft 
 } from "lucide-react"
 import { supabase } from "@/src/lib/supabaseClient"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 export default function FinalizarCompraPage() {
     const { cart, totalPrice, clearCart } = useCart()
@@ -164,10 +166,10 @@ export default function FinalizarCompraPage() {
                         <button 
                             onClick={handleFinalizarPedido} 
                             disabled={isSubmitting} 
-                            className="w-full bg-[#EF8851] text-white py-5 rounded-3xl font-bold text-xl flex items-center justify-center gap-3"
+                            className="w-full bg-[#EF8851] text-white py-5 rounded-3xl font-bold text-xl flex items-center justify-center gap-2"
                         >
-                            {isSubmitting ? <Loader2 className="animate-spin" size={24} /> : <MessageCircle size={24} />}
-                            {isSubmitting ? "Procesando..." : "Confirmar y pedir por WhatsApp"}
+                            {isSubmitting ? <Loader2 className="animate-spin" size={24} /> : <FontAwesomeIcon icon={faWhatsapp} size="lg" />}
+                            {isSubmitting ? "Procesando..." : "Confirmar por WhatsApp"}
                         </button>
                     </div>
 

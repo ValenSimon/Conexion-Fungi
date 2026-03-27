@@ -38,7 +38,7 @@ export function ChoiceFungi() {
                     <div className="flex flex-col gap-5 font-Nunito items-center " key={choice.id}>
                         <div className="border border-gray-100 p-4 py-5 rounded-full bg-white drop-shadow-[0_0_15px_rgba(245,159,64,0.7)]">
                             <img
-                                className="rounded-xl text-[#575757] w-full h-full object-contain md:w-24"
+                                className="rounded-xl text-[#575757] w-20 h-full object-contain md:w-24"
                                 src={choice.image}
                                 alt={choice.title}
                             />

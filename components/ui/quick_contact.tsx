@@ -16,7 +16,7 @@ export default function QuickContact() {
                     </div>
                     <div>
                         <p className="font-bold">Teléfono</p>
-                        <p className="text-sm">Horario de atención 8am a 5pm</p>
+                        <p className="text-sm">Horario de atención 10am a 8pm</p>
                         <a href="tel:+5491122709174" className="text-[#F59F40]">+5491122709174</a>
                     </div>
                 </div>
@@ -26,7 +26,7 @@ export default function QuickContact() {
                     </div>
                     <div>
                         <p className="font-bold">Email</p>
-                        <a className="text-[#F59F40]">conexionfungi26@gmail.com</a>
+                        <a href="mailto:[conexionfungi26@gmail.com]" className="text-[#F59F40]">conexionfungi26@gmail.com</a>
                     </div>
                 </div>
                 <div className="flex items-center gap-6">
