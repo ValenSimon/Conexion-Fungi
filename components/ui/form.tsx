@@ -11,7 +11,7 @@ export default function Form() {
 
       <div className="lg:flex flex flex-col gap-2 ">
         {/* Nombre Completo */}
-        <div className="flex flex-col gap-2 lg:w-1/2">
+        <div className="flex flex-row gap-2 lg:w-1/2">
           <label htmlFor="full-name" className="text-sm font-semibold">Nombre Completo</label>
           <input 
             name="name"
