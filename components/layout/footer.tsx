@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="py-10 bg-[#EF8851] text-white flex flex-col items-center gap-8">
       {/* Logo */}
-      <div className="flex justify-center">
+      <div className="flex justify-center w-80 md:w-96 2xl:w-120">
         <img src="/logos/logo_footer.webp" alt="Conexión Fungi Logo" className="h-auto w-auto" />
       </div>
 
