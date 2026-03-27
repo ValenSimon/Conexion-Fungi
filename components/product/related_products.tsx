@@ -67,7 +67,7 @@ export default function RelatedProducts({ category, currentId }: RelatedProps) {
             <div className="grid grid-cols-2 gap-10 xl:grid-cols-4 xl:gap-14 2xl:grid-cols-4">
                 {related.map(product => (
                     <div className="flex flex-col gap-2 font-Nunito transition duration-300" key={product.id}>
-                        <div className="relative aspect-square">
+                        <div className="relative aspect-square h-[200px] sm:h-[300px]">
                             <img 
                                 className="rounded-xl text-[#575757] w-full h-full object-cover" 
                                 src={product.image_url} 
