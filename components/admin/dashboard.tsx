@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Products from "@/public/admin/products.png"
 import Orders from "@/public/admin/orders.png"
 import Users from "@/public/admin/users.png"
-import Logo from "@/public/logos/logo_footer.png"
+import Logo from "@/public/logos/logo_footer.webp"
 
 export default function Sidebar() {
     const [isOpen, setIsOpen] = useState(true);
