@@ -17,7 +17,7 @@ export default function QuickContact() {
                     <div>
                         <p className="font-bold">Teléfono</p>
                         <p className="text-sm">Horario de atención 10am a 8pm</p>
-                        <a href="tel:+5491122709174" className="text-[#F59F40]">+5491122709174</a>
+                        <a href="tel:+5491131902313" className="text-[#F59F40]">+5491131902313</a>
                     </div>
                 </div>
                 <div className="flex items-center gap-6">
